@@ -1,25 +1,10 @@
 # ComfyUI Workflow Asset Agent
 
-Manifest-first workflow model resolver and downloader for ComfyUI.
+Manifest-first workflow resolver and downloader for ComfyUI.
 
-This project scans the currently opened workflow, extracts referenced models, keeps a reusable manifest per workflow, resolves download sources with a Hugging Face-first strategy, and downloads assets into the correct ComfyUI model folders or a temporary asset root.
+It scans the currently opened workflow, extracts referenced models, keeps a reusable manifest per workflow, resolves sources with a Hugging Face-first strategy, and downloads assets into the correct ComfyUI folders or a temporary asset root.
 
-## What It Includes
-
-- `custom_nodes/ComfyUI-WorkflowAssetAgent`
-  ComfyUI sidebar extension and backend routes
-- `scripts/download_assets.py`
-  Streaming downloader used by the node and by standalone manifests
-- `scripts/workflow_to_manifest.py`
-  Helper for building manifests from workflow JSON
-- `config/models/model_aliases.json`
-  Alias patterns for fuzzy filename matching
-- `config/models/popular_models.json`
-  Curated direct source map for common models
-- `install_to_comfyui.py`
-  Cross-platform installer for local ComfyUI or RunPod workspaces
-
-## Main Features
+## Features
 
 - Scan the active workflow and build a manifest
 - Reuse existing manifests for known workflows
@@ -27,19 +12,19 @@ This project scans the currently opened workflow, extracts referenced models, ke
 - Search workflow notes first, then Hugging Face API, then Hugging Face web
 - Optional AI ranking with OpenAI-compatible APIs
 - Download into temp assets or a custom mapped root
-- Disk preflight before queuing downloads
-- Real per-file download progress for direct file downloads
-- One-click download from resolved entries
-- Optional custom-node installer route in the same panel
+- Run disk preflight before queuing downloads
+- Show real per-file download progress for direct downloads
+- Download individual resolved entries with one click
+- Install or update custom nodes from GitHub in the same panel
 
 ## Search Strategy
 
-The current public bundle is intentionally **Hugging Face first**.
+This public bundle is intentionally Hugging Face first.
 
 - Workflow notes and related Hugging Face links are preferred
 - Hugging Face API search is used next
 - Hugging Face web discovery is used as a final fallback
-- Civitai is disabled in the shipped default settings
+- Civitai is disabled in the default shipped settings
 
 ## Repository Layout
 
@@ -52,9 +37,24 @@ docs/
 install_to_comfyui.py
 ```
 
-## Install
+## What is included
 
-### Option 1. Install into an existing local ComfyUI
+- `custom_nodes/ComfyUI-WorkflowAssetAgent`
+  Sidebar extension and backend routes
+- `scripts/download_assets.py`
+  Streaming downloader used by the node and by standalone manifests
+- `scripts/workflow_to_manifest.py`
+  Helper for building manifests from workflow JSON
+- `config/models/model_aliases.json`
+  Alias patterns for fuzzy filename matching
+- `config/models/popular_models.json`
+  Curated direct source map for common models
+- `install_to_comfyui.py`
+  Cross-platform installer for local ComfyUI or RunPod workspaces
+
+## Installation
+
+### Local ComfyUI
 
 ```bash
 python install_to_comfyui.py --comfy-root /path/to/ComfyUI
@@ -66,20 +66,20 @@ Windows example:
 python .\install_to_comfyui.py --comfy-root "D:\ComfyUI-Easy-Install\ComfyUI-Easy-Install\ComfyUI"
 ```
 
-This will:
-
-- copy the custom node into `custom_nodes/ComfyUI-WorkflowAssetAgent`
-- copy shared scripts into `<workspace>/scripts`
-- copy reusable config into `<workspace>/config/models`
-- create `workflow_asset_agent_settings.json` if it does not already exist
-
-### Option 2. Install into a RunPod-style workspace
+### RunPod style workspace
 
 ```bash
 python install_to_comfyui.py --comfy-root /workspace/ComfyUI --workspace-root /workspace
 ```
 
-## Environment Variables
+Installer actions:
+
+- copies the custom node into `custom_nodes/ComfyUI-WorkflowAssetAgent`
+- copies shared scripts into `<workspace>/scripts`
+- copies reusable config into `<workspace>/config/models`
+- creates `workflow_asset_agent_settings.json` if it does not already exist
+
+## Environment variables
 
 Create a local `.env` or export variables in your shell:
 
@@ -88,27 +88,25 @@ OPENAI_API_KEY=
 HF_TOKEN=
 ```
 
-Notes:
-
 - `OPENAI_API_KEY` is only required for AI resolve
 - `HF_TOKEN` is optional but useful for gated Hugging Face repos
 - `.env` is intentionally excluded from git
 
-## Settings File
+## Settings
 
-Default example:
+Example template:
 
 - `config/models/workflow_asset_agent_settings.example.json`
 
-Runtime settings are written to:
+Runtime file:
 
 - `config/models/workflow_asset_agent_settings.json`
 
-This runtime file is ignored by git because it is user state.
+The runtime settings file is ignored by git because it is user state.
 
-## Generated Data
+## Generated data
 
-The following are generated at runtime and should usually stay out of git:
+These are generated at runtime and usually should not be committed:
 
 - `config/models/model_registry.json`
 - `config/manifests/by_workflow/`
@@ -117,22 +115,25 @@ The following are generated at runtime and should usually stay out of git:
 
 See [docs/MANIFESTS.md](docs/MANIFESTS.md).
 
-## Publishing Notes
+## Notes before publishing
 
-Before pushing publicly, review:
+Before publishing or reusing this bundle, review:
 
 - `README.md`
 - `.env.example`
 - `config/models/popular_models.json`
 
-to make sure everything matches the sources and naming you want to publish.
+so the public package matches the sources and naming you want to ship.
 
-## Support
+## Don@tes
 
-If this tool saves you time, add your support link here before publishing:
+**If any of this turns out to be useful for you - I'm glad.  
+And if you feel like supporting it:  
+☕ 1-2 coffees are more than enough ☺️**
 
-- Buy Me a Coffee: `YOUR_LINK_HERE`
+[Click to Buy me a Coffee](https://buymeacoffee.com/natlrazfx)
+[Subscribe me on Substack](https://substack.com/@natalia289425)
 
 ## Status
 
-This repository is intended to be a reusable public bundle of the Workflow Asset Agent toolchain, not a dump of a private ComfyUI workspace.
+This repository is meant to be a reusable public bundle of the Workflow Asset Agent toolchain, not a dump of a private ComfyUI workspace.
