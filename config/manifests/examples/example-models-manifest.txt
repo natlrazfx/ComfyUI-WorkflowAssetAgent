@@ -1,0 +1,7 @@
+# Example manifest format
+# FILE|<direct file url>|<relative or absolute target>
+# SNAPSHOT|<huggingface repo id>|<relative or absolute target dir>
+# INCLUDE|<path to another manifest>
+
+FILE|https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors|checkpoints/v1-5-pruned-emaonly.safetensors
+SNAPSHOT|stabilityai/stable-diffusion-xl-base-1.0|checkpoints/sdxl-base-1.0

@@ -1,0 +1,136 @@
+.waa-sidebar {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.waa-sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.waa-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.waa-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.waa-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waa-field-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.waa-button-stack button,
+.waa-sidebar input,
+.waa-sidebar select {
+  width: 100%;
+}
+
+.waa-button-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.waa-meta,
+.waa-queue-box,
+.waa-log,
+.waa-path {
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.waa-queue-box,
+.waa-log,
+.waa-card,
+.waa-progress-card {
+  border: 1px solid var(--border-color, #3b3b3b);
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--comfy-menu-bg, rgba(255, 255, 255, 0.03));
+}
+
+.waa-progress-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waa-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.waa-progress-bar {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.waa-progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #35c759 0%, #2d9cdb 100%);
+  transition: width 0.25s ease;
+}
+
+.waa-progress-text {
+  font-size: 0.76rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  opacity: 0.9;
+}
+
+.waa-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.waa-card-top,
+.waa-row-actions,
+.waa-list-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.waa-card-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.waa-status.ok {
+  color: #4caf50;
+}
+
+.waa-status.todo {
+  color: #ff9800;
+}
+
+.waa-mini-btn {
+  min-width: 90px;
+}

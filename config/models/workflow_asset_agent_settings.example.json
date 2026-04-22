@@ -1,0 +1,41 @@
+{
+  "download_mode": "temp_assets",
+  "custom_root": "",
+  "default_temp_root": "/tmp/comfy_assets",
+  "category_subdirs": {
+    "checkpoints": "checkpoints",
+    "diffusion_models": "diffusion_models",
+    "vae": "vae",
+    "vae_approx": "vae_approx",
+    "loras": "loras",
+    "unet": "unet",
+    "clip": "clip",
+    "clip_vision": "clip_vision",
+    "controlnet": "controlnet",
+    "text_encoders": "text_encoders",
+    "model_patches": "model_patches",
+    "latent_upscale_models": "latent_upscale_models",
+    "upscale_models": "upscale_models",
+    "embeddings": "embeddings",
+    "depthanything3": "depthanything3",
+    "sam3": "sam3",
+    "whisper": "whisper",
+    "Qwen3-ASR": "Qwen3-ASR",
+    "LLM": "LLM",
+    "other": "other"
+  },
+  "ai": {
+    "enabled": true,
+    "provider": "openai_compatible",
+    "base_url": "https://api.openai.com/v1",
+    "model": "",
+    "api_key_env": "OPENAI_API_KEY"
+  },
+  "search": {
+    "provider_mode": "hf_only",
+    "huggingface_enabled": true,
+    "civitai_enabled": false,
+    "timeout_seconds": 20,
+    "max_candidates": 8
+  }
+}
