@@ -1,5 +1,7 @@
 # ComfyUI Workflow Asset Agent
 
+![ComfyUI Workflow Asset Agent UI](screenshots/ComfyUI-WorkflowAssetAgent-ui.jpeg)
+
 Manifest-first workflow resolver and downloader for ComfyUI.
 
 It scans the currently opened workflow, extracts referenced models, keeps a reusable manifest per workflow, resolves sources with a Hugging Face-first strategy, and downloads assets into the correct ComfyUI folders or a temporary asset root.
